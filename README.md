@@ -19,13 +19,35 @@ The main program we will use is [i2cset](https://linux.die.net/man/8/i2cset).
 ## How To Use Outputs
 
 1. Set pin modes to output:
-    - set A register `i2cset -y 1 0x23 0x00 0x00` (all outputs)
-    - set B register `i2cset -y 1 0x23 0x01 0x00` (all outputs)
+    - set all A pins as outputs `i2cset -y 1 0x23 0x00 0x00` (all outputs)
+    - set all B pins as outputs `i2cset -y 1 0x23 0x01 0x00` (all outputs)
 2. Send a command
-    - All A pins off `i2cset -y 1 0x23 0x14 0x00`
-    - All B pins off `i2cset -y 1 0x23 0x15 0x00`
-    - All A pins on `i2cset -y 1 0x23 0x14 0xFF`
-    - All B pins on `i2cset -y 1 0x23 0x15 0xFF`
+    - set all A bank pins on `i2cset -y 1 0x23 0x14 0xFF`
+    - set all A bank pins off `i2cset -y 1 0x23 0x14 0x00`
+    - set all B bank pins on `i2cset -y 1 0x23 0x15 0xFF`
+    - set all B bank pins off `i2cset -y 1 0x23 0x15 0x00`
+
+### Individual Pins
+
+| Pin Label | Register | Hex Value |
+|-----------|----------|-----------|
+| A0        | 0x014    | 0x01      |
+| A1        | 0x014    | 0x02      |
+| A2        | 0x014    | 0x04      |
+| A3        | 0x014    | 0x08      |
+| A4        | 0x014    | 0x10      |
+| A5        | 0x014    | 0x20      |
+| A6        | 0x014    | 0x40      |
+| A7        | 0x014    | 0x80      |
+| B0        | 0x015    | 0x01      |
+| B1        | 0x015    | 0x02      |
+| B2        | 0x015    | 0x04      |
+| B3        | 0x015    | 0x08      |
+| B4        | 0x015    | 0x10      |
+| B5        | 0x015    | 0x20      |
+| B6        | 0x015    | 0x40      |
+| B7        | 0x015    | 0x80      |
+
 
 ## How To Use Inputs
 
